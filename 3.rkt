@@ -35,3 +35,22 @@
                          "-- result --"
                          result))
   (for-each displayln out))
+
+
+;; (begin (define (fact n) (cond ((= n 0) 1) (else (* n (fact (sub1 n)))))) (fact 5))
+
+;;#<syntax
+;;(begin
+;;  (define-values (fact)
+;;    (lambda (n)
+;;      (if (#%app = n (quote 0))
+;;        (let-values () (quote 1))
+;;        (let-values ()
+;;          (#%app * n
+;;           (#%app (#%top . fact)
+;;            (#%app sub1 n)))))))
+;;  (#%app (#%top . fact) (quote 5)))>
+
+;; note: identifier => identifier + binding
+
+;; #~8.11.1 chez-schemeD10Z0u�Fsdata
